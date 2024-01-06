@@ -51,7 +51,7 @@
       <div class="navbar-nav">
         <a href="#home">Home</a>
         <a href="#about">Tentang Kami</a>
-        <a href="#menu">Menu</a>
+        <!-- <a href="#menu">Menu</a> -->
         <a href="#products">Produk</a>
         <a href="#contact">Kontak</a>
       </div>
@@ -217,7 +217,7 @@
     <!-- about end -->
 
     <!-- menu  start -->
-    <section
+    <!-- <section
       id="menu"
       class="menu">
       <h2><span>Menu</span> Kami</h2>
@@ -269,7 +269,7 @@
           <p class="menu-card-price">IDR 15K</p>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- menu end -->
 
     <!-- prducts section start -->
@@ -277,12 +277,10 @@
       class="products"
       id="products"
       x-data="products">
-      <h2><span>Produk Unggulan</span> Kami</h2>
+      <h2><span>Produk</span> Kami</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat
-        magnam excepturi quibusdam! Reprehenderit, possimus earum, recusandae
-        cupiditate at dolores eveniet amet quos odio perspiciatis dolore iste
-        corporis! Commodi, hic.
+        Berikut beberapa produk mentah atau racikan yang telah kami sediakan
+        beser harganya.
       </p>
 
       <div class="row">
@@ -346,12 +344,7 @@
                         :alt="item.name" />
                       <div class="product-content">
                         <h3 x-text="item.name"></h3>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Provident, tenetur cupiditate facilis obcaecati
-                          ullam maiores minima quos perspiciatis similique
-                          itaque, esse rerum eius repellendus voluptatibus!
-                        </p>
+                        <p x-text="item.desc"></p>
                         <div class="product-stars">
                           <svg
                             width="24"
@@ -507,8 +500,9 @@
       class="contact">
       <h2><span>Kontak</span> Kami</h2>
       <p>
-        ilorem iosumm jauhifmaiiko mjnnfijei nnaniji guuau buahsuh bhewgeeu
-        jaisjih hihahai
+        Jika anda tertarik dengan apa yang telah di sediakan oleh alam kepada
+        kita, anda bisa menghubungi atau datang langsung ke toko kami melalui
+        data dibawah ini.
       </p>
       <div class="row">
         <iframe
