@@ -209,9 +209,13 @@ body {
     padding: 1rem;
 }
 
-.form-container h5 {
+.form-container h4 {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
+}
+
+.form-container h5 {
+    font-size: 0.5rem;
 }
 
 .form-container form {
