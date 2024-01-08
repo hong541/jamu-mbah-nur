@@ -248,6 +248,11 @@ body {
     cursor: pointer;
 }
 
+.form-container .checkout-button.disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
 /* hero section */
 .hero {
     min-height: 100vh;
@@ -618,9 +623,12 @@ footer .credit a {
 }
 
 .modal-content p {
+    display: contents;
     font-size: 1.2rem;
     line-height: 1.8rem;
     margin-top: 1.2rem;
+
+
 }
 
 .modal-content .cart-modal {

@@ -6,7 +6,7 @@ document.addEventListener("alpine:init", () => {
         name: "Cengkeh",
         img: "1.jpg",
         price: 25000,
-        desc: "Cengkih atau cengkeh (Syzygium aromaticum) adalah kuncup bunga kering beraroma dari keluarga pohon Myrtaceae. Cengkih adalah tanaman asli Indonesia, banyak digunakan sebagai bumbu masakan pedas di negara-negara Eropa, dan sebagai bahan utama rokok kretek khas Indonesia. ",
+        desc: "Cengkih atau cengkeh (Syzygium aromaticum) adalah kuncup bunga kering beraroma dari keluarga pohon Myrtaceae. Cengkih adalah tanaman asli Indonesia, banyak digunakan sebagai bumbu masakan pedas di negara-negara Eropa, dan sebagai bahan utama rokok kretek khas Indonesia.",
       },
 
       {
@@ -99,7 +99,61 @@ document.addEventListener("alpine:init", () => {
       }
     },
   });
+});
+// form validation
+const checkoutButton = document.querySelector(".checkout-button");
+checkoutButton.disabled = true;
+const form = document.querySelector("#checkoutForm");
 
+form.addEventListener("keyup", function () {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].value.length !== 0) {
+      checkoutButton.classList.remove("disabled");
+      checkoutButton.classList.add("disabled");
+    } else {
+      return false;
+    }
+  }
+  checkoutButton.disabled = false;
+  checkoutButton.classList.remove("disabled");
+});
+
+// kirimdata
+checkoutButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = new URLSearchParams(formData);
+  const objData = Object.fromEntries(data);
+  const message = formatMessage(objData);
+  window.open("http://wa.me/6285788531938?text=" + encodeURIComponent(message));
+});
+
+// format kirim pesan
+const formatMessage = (obj) => {
+  return `Data Customer 
+  Nama: ${obj.name}
+  Email: ${obj.email}
+  No HP: ${obj.phone}
+  Data Pesanan
+  ${JSON.parse(obj.items).map(
+    (item) =>
+      `${item.name} ${item.quantity} x ${rupiah(item.price)} = (${rupiah(
+        item.total
+      )}) \n`
+  )}
+  TOTAL : ${obj.total}
+    Terima Kasih.`;
+};
+//konversi rupiah
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(number);
+};
+
+document.addEventListener("alpine:init", () => {
   Alpine.data("eye", () => ({
     open: false,
 
@@ -119,12 +173,3 @@ document.addEventListener("alpine:init", () => {
     },
   }));
 });
-
-//konversi rupiah
-const rupiah = (number) => {
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-  }).format(number);
-};

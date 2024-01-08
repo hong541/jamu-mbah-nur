@@ -18,9 +18,6 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- app -->
-    <script src="src/app.js"></script>
-
     <!-- fonts -->
 
     <link
@@ -132,6 +129,14 @@
           <form
             action=""
             id="checkoutForm">
+            <input
+              type="hidden"
+              name="items"
+              x-model="JSON.stringify($store.cart.items)" />
+            <input
+              type="hidden"
+              name="total"
+              x-model="$store.cart.total" />
             <h5>Customer Detail</h5>
 
             <label for="name">
@@ -157,7 +162,7 @@
             </label>
 
             <button
-              class="checkout-button"
+              class="checkout-button disabled"
               type="submit"
               id="checkout-button"
               value="checkout">
@@ -568,6 +573,8 @@
     <script>
       feather.replace();
     </script>
+    <!-- app -->
+    <script src="src/app.js"></script>
     <!-- javascript -->
     <script src="js/script.js"></script>
   </body>
